@@ -1,4 +1,4 @@
-package com.example.demo.web.dal.model;
+package com.demo.web.dal.model;
 
 /**
  * Created by wanglei on 2017/5/31.

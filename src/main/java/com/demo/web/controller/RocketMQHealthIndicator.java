@@ -1,4 +1,4 @@
-package com.example.demo.web.controller;
+package com.demo.web.controller;
 
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;

@@ -1,4 +1,4 @@
-package com.example.demo.web.controller;
+package com.demo.web.controller;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

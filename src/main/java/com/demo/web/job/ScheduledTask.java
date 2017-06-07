@@ -1,7 +1,7 @@
-package com.example.demo.web.job;
+package com.demo.web.job;
 
-import com.example.demo.web.dal.mapper.UserMapper;
-import com.example.demo.web.dal.model.User;
+import com.demo.web.dal.mapperOne.UserMapperOne;
+import com.demo.web.dal.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -16,7 +16,7 @@ import java.util.Date;
 public class ScheduledTask {
 
     @Autowired
-    UserMapper userMapper;
+    UserMapperOne userMapperOne;
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
@@ -27,7 +27,7 @@ public class ScheduledTask {
 
     @Scheduled(fixedRate = 2000)
     public void getTask2() {
-        User user = userMapper.findUserByName("tom");
+        User user = userMapperOne.getOne(1L);
         System.out.println("任务2,从配置文件加载任务信息，当前时间：" + dateFormat.format(new Date())+user.getName()+"-----"+user.getAge());
     }
 

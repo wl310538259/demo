@@ -2,6 +2,8 @@ package com.demo.web.job;
 
 import com.demo.web.dal.mapperOne.UserMapperOne;
 import com.demo.web.dal.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -14,6 +16,7 @@ import java.util.Date;
  */
 @Component
 public class ScheduledTask {
+    private static Logger logger = LoggerFactory.getLogger(ScheduledTask.class);
 
     @Autowired
     UserMapperOne userMapperOne;
@@ -22,7 +25,7 @@ public class ScheduledTask {
 
     @Scheduled(fixedRate = 1000)
     public void getTask1() {
-        System.out.println("任务1,从配置文件加载任务信息，当前时间：" + dateFormat.format(new Date()));
+        logger.info("任务1,从配置文件加载任务信息，当前时间：" + dateFormat.format(new Date()));
     }
 
     @Scheduled(fixedRate = 2000)

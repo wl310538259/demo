@@ -4,6 +4,8 @@ import com.demo.web.dal.mapperOne.UserMapperOne;
 import com.demo.web.dal.mapperTwo.UserMapperTwo;
 import com.demo.web.dal.mapperThree.UserMapperThree;
 import com.demo.web.dal.model.User;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping({"/home"})
 public class UserController {
+    private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     UserMapperOne userMapperOne;
@@ -30,9 +33,9 @@ public class UserController {
         User user1 = userMapperOne.getOne(1L);
         User user2 = userMapperTwo.getOne(1L);
         User user3 = userMapperThree.getOne(1L);
-        System.out.println("user1:"+user1.getName()+user1.getAge());
-        System.out.println("user2:"+user2.getName()+user2.getAge());
-        System.out.println("user3:"+user3.getName()+user3.getAge());
+        logger.info("user1:"+user1.getName()+user1.getAge());
+        logger.info("user2:"+user2.getName()+user2.getAge());
+        logger.info("user3:"+user3.getName()+user3.getAge());
         return "success";
     }
 

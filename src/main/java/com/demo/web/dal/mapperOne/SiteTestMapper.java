@@ -2,9 +2,11 @@ package com.demo.web.dal.mapperOne;
 
 import com.demo.web.dal.model.SiteTest;
 import com.demo.web.dal.model.SiteTestExample;
-import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+@Mapper
 public interface SiteTestMapper {
     long countByExample(SiteTestExample example);
 
